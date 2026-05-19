@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">
+            com.microsoft.sqlserver.jdbc.SQLServerDriver
+        </property>
+        <property name="hibernate.connection.url">
+            jdbc:sqlserver://localhost:1434;databaseName=chess_online;
+            encrypt=true;trustServerCertificate=true
+        </property>
+        <property name="hibernate.connection.username">sa</property>
+        <property name="hibernate.connection.password">YourStrong!Passw0rd</property>
+
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.SQLServerDialect
+        </property>
+
+        <!-- update = tự tạo/cập nhật bảng -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.show_sql">false</property>
+
+        <mapping class="server.entity.Player"/>
+        <mapping class="server.entity.Game"/>
+    </session-factory>
+</hibernate-configuration>
